@@ -42,7 +42,7 @@ namespace Tenders.Models
         public CurrencyBudget CurrencyBudget { get; set; }
 
         [Display(Name = "Время")]
-        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
+     
         public DateTime date
         {
             get
