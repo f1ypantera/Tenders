@@ -1,4 +1,35 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model IEnumerable<Tenders.Models.Tender>
 
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Моя первая веб-страница</title>
+</head>
+<body>
+
+    <h1>Тендеры</h1>
+
+
+
+    @foreach (var item in @Model)
+    {
+
+    <div>
+        <p> Тендер номер @item.TenderID</p>
+        <p>@item.SubjectTender</p>
+        <p>@item.OrgTender.ListOrgTender</p>
+        <p>@item.Budget</p>
+        <p>@item.CurrencyBudget.ListCurrencyBudget</p>
+        <p>@item.SponsorShip</p>
+
+
+
+    </div>
+
+    }
+
+
+
+</body>
+</html>

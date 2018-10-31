@@ -30,6 +30,8 @@ namespace Tenders.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Tender tender = await db.tenders.FindAsync(id);
+
+         
             if (tender == null)
             {
                 return HttpNotFound();
@@ -52,7 +54,7 @@ namespace Tenders.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "TenderID,SubjectTender,DescriptionTender,OrgTenderID,ViewTenderID,CategoryID,Budget,CurrencyBudgetID,date,SponsorShip")] Tender tender)
+        public async Task<ActionResult> Create([Bind(Include = "TenderID,SubjectTender,DescriptionTender,OrgTenderID,ViewTenderID,CategoryID,Budget,CurrencyBudgetID,SponsorShip")] Tender tender)
         {
             if (ModelState.IsValid)
             {

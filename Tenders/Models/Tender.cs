@@ -40,8 +40,22 @@ namespace Tenders.Models
         public int CurrencyBudgetID { get; set; }
         [Display(Name = "Валюта тендера")]
         public CurrencyBudget CurrencyBudget { get; set; }
+
         [Display(Name = "Время")]
-        public DateTime date { get; set; }
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
+        public DateTime date
+        {
+            get
+            {
+                return DateTime.Now;
+            }
+
+            set
+            {
+               
+            }
+        }
+
         [Display(Name = "Спонсоры")]
         public string SponsorShip { get; set; }
     
