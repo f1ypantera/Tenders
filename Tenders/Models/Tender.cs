@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Tenders.Models;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace Tenders.Models
 {
     public class Tender
     {
+        [Key]
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public int TenderID { get; set; }
         public string SubjectTender { get; set; }
         public string DescriptionTender { get; set; }

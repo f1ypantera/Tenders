@@ -157,7 +157,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CurrencyBudget.cs" />
+    <Compile Include="Models\OrgTender.cs" />
     <Compile Include="Models\Tender.cs" />
+    <Compile Include="Models\TenderContext.cs" />
+    <Compile Include="Models\ViewTender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
