@@ -11,7 +11,9 @@ namespace Tenders.Models
     {
         [Key]
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
+        
         public int CategoryID { get; set; }
+        [Display(Name = "Справочник категорий")]
         public string ListCategory { get; set; }
 
     }

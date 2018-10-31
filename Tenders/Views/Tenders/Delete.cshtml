@@ -1,0 +1,96 @@
+﻿@model Tenders.Models.Tender
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tender</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.ListCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.ListCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrencyBudget.ListCurrencyBudget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrencyBudget.ListCurrencyBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrgTender.ListOrgTender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrgTender.ListOrgTender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViewTender.ListViewTenders)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViewTender.ListViewTenders)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubjectTender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubjectTender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionTender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionTender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SponsorShip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SponsorShip)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -11,7 +11,10 @@ namespace Tenders.Models
     {
         [Key]
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
+        
         public int OrgTenderID { get; set; }
+
+        [Display(Name = "Справочник организаторов тендеров")]
         public string ListOrgTender { get; set; }
     }
 }

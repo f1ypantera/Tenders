@@ -12,6 +12,7 @@ namespace Tenders.Models
         [Key]
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public int CurrencyBudgetID { get; set; }
+        [Display(Name = "Справочник валют")]
         public string ListCurrencyBudget { get; set; }
     }
 }

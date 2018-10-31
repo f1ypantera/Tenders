@@ -11,7 +11,9 @@ namespace Tenders.Models
     {
         [Key]
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
+        
         public int ViewTenderID { get; set; }
+        [Display(Name = "Справочник видов")]
         public string ListViewTenders { get; set; }
 
     }
