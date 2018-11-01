@@ -22,19 +22,7 @@ namespace Tenders.Controllers
         }
 
         
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            OrgTender orgTender = await db.orgTenders.FindAsync(id);
-            if (orgTender == null)
-            {
-                return HttpNotFound();
-            }
-            return View(orgTender);
-        }
+      
 
    
         public ActionResult Create()

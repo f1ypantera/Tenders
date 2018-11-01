@@ -4,11 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+</br>
+<div class="form-group">
+
+    <a class="btn btn-default" href=" @Url.Action("Create", "ViewTenders")">Создать новое</a>
+
+</div>
 <table class="table">
     <tr>
         <th>
@@ -23,8 +26,7 @@
             @Html.DisplayFor(modelItem => item.ListViewTenders)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ViewTenderID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ViewTenderID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.ViewTenderID }) |    
             @Html.ActionLink("Delete", "Delete", new { id=item.ViewTenderID })
         </td>
     </tr>
