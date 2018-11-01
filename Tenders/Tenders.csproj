@@ -237,7 +237,6 @@
     <Content Include="Views\ViewTenders\Edit.cshtml" />
     <Content Include="Views\ViewTenders\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,17 +20,18 @@ namespace Tenders.Controllers
         public ActionResult Index(int page = 1)
         {
 
-             var  tenders = db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
+             var Tenders = db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
 
 
             TenderListViewModel model = new TenderListViewModel
             {
-                Tenders = tenders.OrderBy(p => p.TenderID).Skip((page - 1) * pageSize).Take(pageSize),
+
+                Tenders = Tenders.OrderBy(p => p.TenderID).Skip((page - 1) * pageSize).Take(pageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemPerPage = pageSize,
-                    TotalItems = tenders.Count()
+                    TotalItems = Tenders.Count()
                 }
 
             };
