@@ -17,24 +17,33 @@
 
     <h1>Тендеры</h1>
 
+   
+    <form asp-controller="Tenders" asp-action="Index" method="get">
+
+        <p class="form-group">
+            
+            <input class="form-control" type="text" name="SearchString">
+            <input class="btn btn-primary" type="submit" value="Поиск" />
+        </p>
+    </form>
 
     @foreach (var item in @Model)
     {
 
-        <div class="well">
-            <strong> Тендер номер @item.TenderID</strong>
-            <h3>
-                <span class="lead">@item.SubjectTender</span>
-            </h3>
+    <div class="well">
+        <strong> Тендер номер @item.TenderID</strong>
+        <h3>
+            <span class="lead">@item.SubjectTender</span>
+        </h3>
 
-            <p>@item.OrgTender.ListOrgTender</p>
-            <span class="pull-right label label-primary">@item.Budget</span>
-            <p>@item.CurrencyBudget.ListCurrencyBudget</p>
-            <p>@item.SponsorShip</p>
+        <p>@item.OrgTender.ListOrgTender</p>
+        <span class="pull-right label label-primary">@item.Budget</span>
+        <p>@item.CurrencyBudget.ListCurrencyBudget</p>
+        <p>@item.SponsorShip</p>
 
 
-
-        </div>
+        @Html.ActionLink("Детальное описание", "DetailDesription", new { id = item.TenderID })
+    </div>
 
     }
 

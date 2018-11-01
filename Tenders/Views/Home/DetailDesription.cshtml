@@ -1,0 +1,84 @@
+﻿@model Tenders.Models.Tender
+
+<div>
+    <h4>Детальное описание</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.ListCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.ListCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrencyBudget.ListCurrencyBudget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrencyBudget.ListCurrencyBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrgTender.ListOrgTender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrgTender.ListOrgTender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViewTender.ListViewTenders)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViewTender.ListViewTenders)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubjectTender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubjectTender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionTender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionTender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SponsorShip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SponsorShip)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Назад", "Index")
+</p>

@@ -15,14 +15,15 @@ namespace Tenders.Controllers
     {
         private TenderContext db = new TenderContext();
 
-        // GET: Tenders
-        public async Task<ActionResult> Index()
+    
+        public async Task<ActionResult> Index(string searchString)
         {
             var tenders = db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
+
+          
             return View(await tenders.ToListAsync());
         }
 
-        // GET: Tenders/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -39,7 +40,7 @@ namespace Tenders.Controllers
             return View(tender);
         }
 
-        // GET: Tenders/Create
+     
         public ActionResult Create()
         {
             ViewBag.CategoryID = new SelectList(db.categories, "CategoryID", "ListCategory");
@@ -49,9 +50,7 @@ namespace Tenders.Controllers
             return View();
         }
 
-        // POST: Tenders/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "TenderID,SubjectTender,DescriptionTender,OrgTenderID,ViewTenderID,CategoryID,Budget,CurrencyBudgetID,SponsorShip")] Tender tender)
@@ -70,7 +69,7 @@ namespace Tenders.Controllers
             return View(tender);
         }
 
-        // GET: Tenders/Edit/5
+    
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -89,9 +88,7 @@ namespace Tenders.Controllers
             return View(tender);
         }
 
-        // POST: Tenders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "TenderID,SubjectTender,DescriptionTender,OrgTenderID,ViewTenderID,CategoryID,Budget,CurrencyBudgetID,date,SponsorShip")] Tender tender)
@@ -109,7 +106,7 @@ namespace Tenders.Controllers
             return View(tender);
         }
 
-        // GET: Tenders/Delete/5
+
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,7 +121,6 @@ namespace Tenders.Controllers
             return View(tender);
         }
 
-        // POST: Tenders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)

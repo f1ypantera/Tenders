@@ -19,16 +19,49 @@ namespace Tenders.Controllers
         private TenderContext db = new TenderContext();
 
 
-        public  ActionResult Index(int? page)
+        public  ActionResult Index(int? page,string searchString,string searchDesription,string organizator)
         {
-            var tenders =  db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
+
+            
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            return View( tenders.OrderBy(p => p.TenderID).ToPagedList(pageNumber,pageSize));
+
+
+            var tenders =  db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender).OrderBy(p => p.TenderID).ToPagedList(pageNumber, pageSize);
+
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                tenders = tenders.Where(s => s.SubjectTender.Contains(searchString)).ToPagedList(pageNumber, pageSize);
+            }
+            if (!string.IsNullOrEmpty(searchDesription))
+            {
+                tenders = tenders.Where(s => s.DescriptionTender.Contains(searchString)).ToPagedList(pageNumber, pageSize);
+            }
+
+
+            return View(tenders);
+        }
+        public async Task<ActionResult> DetailDesription(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            Tender tender = await db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender).SingleOrDefaultAsync(x=>x.TenderID == id);
+          
+
+
+            if (tender == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tender);
         }
 
 
-     
 
 
 

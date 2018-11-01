@@ -15,13 +15,13 @@ namespace Tenders.Controllers
     {
         private TenderContext db = new TenderContext();
 
-        // GET: CurrencyBudgets
+     
         public async Task<ActionResult> Index()
         {
             return View(await db.currencyBudgets.ToListAsync());
         }
 
-        // GET: CurrencyBudgets/Details/5
+      
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -36,15 +36,12 @@ namespace Tenders.Controllers
             return View(currencyBudget);
         }
 
-        // GET: CurrencyBudgets/Create
+     
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CurrencyBudgets/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "CurrencyBudgetID,ListCurrencyBudget")] CurrencyBudget currencyBudget)
@@ -59,7 +56,7 @@ namespace Tenders.Controllers
             return View(currencyBudget);
         }
 
-        // GET: CurrencyBudgets/Edit/5
+ 
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,9 +71,7 @@ namespace Tenders.Controllers
             return View(currencyBudget);
         }
 
-        // POST: CurrencyBudgets/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "CurrencyBudgetID,ListCurrencyBudget")] CurrencyBudget currencyBudget)
@@ -90,7 +85,7 @@ namespace Tenders.Controllers
             return View(currencyBudget);
         }
 
-        // GET: CurrencyBudgets/Delete/5
+   
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -105,7 +100,7 @@ namespace Tenders.Controllers
             return View(currencyBudget);
         }
 
-        // POST: CurrencyBudgets/Delete/5
+     
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
