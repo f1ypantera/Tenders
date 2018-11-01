@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Tenders.Models.Tender>
+﻿@model PagedList.IPagedList<Tenders.Models.Tender>
+@using PagedList.Mvc;
+
 
 
 
@@ -24,7 +26,7 @@
             <h3>
                 <span class="lead">@item.SubjectTender</span>
             </h3>
-            
+
             <p>@item.OrgTender.ListOrgTender</p>
             <span class="pull-right label label-primary">@item.Budget</span>
             <p>@item.CurrencyBudget.ListCurrencyBudget</p>
@@ -35,12 +37,12 @@
         </div>
 
     }
-       
-           
 
-   
 
-      
+
+    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
 
 

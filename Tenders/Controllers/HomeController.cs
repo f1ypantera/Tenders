@@ -19,12 +19,12 @@ namespace Tenders.Controllers
         private TenderContext db = new TenderContext();
 
 
-        public ActionResult Index(int? page)
+        public  ActionResult Index(int? page)
         {
-            var tenders = db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
+            var tenders =  db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            return View(tenders.OrderBy(p => p.TenderID).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList());
+            return View( tenders.OrderBy(p => p.TenderID).ToPagedList(pageNumber,pageSize));
         }
 
 
