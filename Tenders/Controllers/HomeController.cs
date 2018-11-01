@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Tenders.Models;
+using PagedList.Mvc;
+using PagedList;
 
 
 namespace Tenders.Controllers
@@ -15,32 +17,18 @@ namespace Tenders.Controllers
     public class HomeController : Controller
     {
         private TenderContext db = new TenderContext();
-        public int pageSize = 4;
 
-        public ActionResult Index(int page = 1)
+
+        public ActionResult Index(int? page)
         {
-
-             var Tenders = db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
-
-
-            TenderListViewModel model = new TenderListViewModel
-            {
-
-                Tenders = Tenders.OrderBy(p => p.TenderID).Skip((page - 1) * pageSize).Take(pageSize),
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = page,
-                    ItemPerPage = pageSize,
-                    TotalItems = Tenders.Count()
-                }
-
-            };
-
-
-            return View(model);
-      
+            var tenders = db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(tenders.OrderBy(p => p.TenderID).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList());
         }
-   
+
+
+     
 
 
 

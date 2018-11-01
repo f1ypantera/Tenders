@@ -1,6 +1,6 @@
-﻿@using Tenders.Models
-@using Tenders.HtmlHelpers
-@model TenderListViewModel
+﻿@model IEnumerable<Tenders.Models.Tender>
+
+
 
 
 
@@ -16,8 +16,7 @@
     <h1>Тендеры</h1>
 
 
-
-    @foreach (var item in @Model.Tenders)
+    @foreach (var item in @Model)
     {
 
         <div class="well">
