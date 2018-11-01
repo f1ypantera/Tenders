@@ -20,11 +20,14 @@
     @foreach (var item in @Model.Tenders)
     {
 
-        <div>
-            <p> Тендер номер @item.TenderID</p>
-            <p>@item.SubjectTender</p>
+        <div class="well">
+            <strong> Тендер номер @item.TenderID</strong>
+            <h3>
+                <span class="lead">@item.SubjectTender</span>
+            </h3>
+            
             <p>@item.OrgTender.ListOrgTender</p>
-            <p>@item.Budget</p>
+            <span class="pull-right label label-primary">@item.Budget</span>
             <p>@item.CurrencyBudget.ListCurrencyBudget</p>
             <p>@item.SponsorShip</p>
 
