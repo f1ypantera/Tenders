@@ -8,6 +8,7 @@ namespace Tenders.Models
 {
     public class TenderContext : DbContext
     {
+       
 
         public TenderContext() : base("DefaultConnection") { }
 
@@ -16,6 +17,8 @@ namespace Tenders.Models
         public DbSet<ViewTender> viewTenders { get; set; }
         public DbSet<Category> categories { get; set; }
         public DbSet<CurrencyBudget> currencyBudgets { get; set; }
+
+        public PagingInfo PagingInfo { get; set; }
 
 
 

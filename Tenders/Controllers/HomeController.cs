@@ -9,17 +9,39 @@ using System.Web;
 using System.Web.Mvc;
 using Tenders.Models;
 
+
 namespace Tenders.Controllers
 {
     public class HomeController : Controller
     {
         private TenderContext db = new TenderContext();
-        public async Task<ActionResult> Index()
+        public int pageSize = 4;
+
+        public ActionResult Index(int page = 1)
         {
-            var tenders = db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
-            return View(await tenders.ToListAsync());
-        
+
+             var  tenders = db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender);
+
+
+            TenderListViewModel model = new TenderListViewModel
+            {
+                Tenders = tenders.OrderBy(p => p.TenderID).Skip((page - 1) * pageSize).Take(pageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemPerPage = pageSize,
+                    TotalItems = tenders.Count()
+                }
+
+            };
+
+
+            return View(model);
+      
         }
+   
+
+
 
         public ActionResult About()
         {

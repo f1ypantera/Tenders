@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Tenders.Models.Tender>
+﻿@using Tenders.Models
+
+@model TenderListViewModel
+
 
 
 <html>
@@ -12,22 +15,25 @@
 
 
 
-    @foreach (var item in @Model)
+    @foreach (var item in @Model.Tenders)
     {
 
-    <div>
-        <p> Тендер номер @item.TenderID</p>
-        <p>@item.SubjectTender</p>
-        <p>@item.OrgTender.ListOrgTender</p>
-        <p>@item.Budget</p>
-        <p>@item.CurrencyBudget.ListCurrencyBudget</p>
-        <p>@item.SponsorShip</p>
+        <div>
+            <p> Тендер номер @item.TenderID</p>
+            <p>@item.SubjectTender</p>
+            <p>@item.OrgTender.ListOrgTender</p>
+            <p>@item.Budget</p>
+            <p>@item.CurrencyBudget.ListCurrencyBudget</p>
+            <p>@item.SponsorShip</p>
 
 
 
-    </div>
+        </div>
 
     }
+    <div>
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index",new { page = x }))
+    </div>
 
 
 

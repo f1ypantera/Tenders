@@ -162,11 +162,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CurrencyBudget.cs" />
     <Compile Include="Models\OrgTender.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\Tender.cs" />
     <Compile Include="Models\TenderContext.cs" />
+    <Compile Include="Models\TenderListViewModel.cs" />
     <Compile Include="Models\ViewTender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -234,6 +237,7 @@
     <Content Include="Views\ViewTenders\Edit.cshtml" />
     <Content Include="Views\ViewTenders\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
