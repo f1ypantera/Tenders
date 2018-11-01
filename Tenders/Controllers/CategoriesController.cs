@@ -21,19 +21,7 @@ namespace Tenders.Controllers
             return View(await db.categories.ToListAsync());
         }
 
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = await db.categories.FindAsync(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
-        }
+     
 
        
         public ActionResult Create()

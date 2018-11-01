@@ -30,9 +30,9 @@ namespace Tenders.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tender tender = await db.tenders.FindAsync(id);
+             Tender tender = await db.tenders.Include(t => t.Category).Include(t => t.CurrencyBudget).Include(t => t.OrgTender).Include(t => t.ViewTender).SingleOrDefaultAsync(x => x.TenderID == id);
 
-         
+
             if (tender == null)
             {
                 return HttpNotFound();

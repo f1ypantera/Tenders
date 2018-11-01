@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Tenders.Models.Tender>
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+</br>
+<div class="form-group">
+
+    <a class="btn btn-default" href=" @Url.Action("Create", "Tenders")">Создать новый тендер</a>
+
+</div>
 <table class="table">
     <tr>
         <th>
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.SponsorShip)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TenderID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TenderID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TenderID })
+            @Html.ActionLink("Редактировать", "Edit", new { id = item.TenderID })
+            @Html.ActionLink("Описание", "Details", new { id = item.TenderID })
+            @Html.ActionLink("Удалить", "Delete", new { id = item.TenderID })
         </td>
     </tr>
 }

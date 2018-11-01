@@ -22,8 +22,6 @@ namespace Tenders.Controllers
         }
 
         
-      
-
    
         public ActionResult Create()
         {

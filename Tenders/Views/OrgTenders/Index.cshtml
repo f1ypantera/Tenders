@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Tenders.Models.OrgTender>
 
-@{
-    ViewBag.Title = "Index";
-}
 
 
 </br>
 <div class="form-group">
 
-    <a class="btn btn-default"  href=" @Url.Action("Create", "OrgTenders")">Создать новое</a>
+    <a class="btn btn-default"  href=" @Url.Action("Create", "OrgTenders")">Создать нового организатора</a>
   
 </div>
 <table class="table">
@@ -25,9 +22,8 @@
             @Html.DisplayFor(modelItem => item.ListOrgTender)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrgTenderID }) |
-         
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrgTenderID })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.OrgTenderID }) |       
+            @Html.ActionLink("Удалить", "Delete", new { id=item.OrgTenderID })
         </td>
     </tr>
 }

@@ -22,21 +22,7 @@ namespace Tenders.Controllers
         }
 
        
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ViewTender viewTender = await db.viewTenders.FindAsync(id);
-            if (viewTender == null)
-            {
-                return HttpNotFound();
-            }
-            return View(viewTender);
-        }
-
-        
+       
         public ActionResult Create()
         {
             return View();

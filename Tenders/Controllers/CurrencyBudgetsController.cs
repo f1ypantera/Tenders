@@ -22,20 +22,7 @@ namespace Tenders.Controllers
         }
 
       
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            CurrencyBudget currencyBudget = await db.currencyBudgets.FindAsync(id);
-            if (currencyBudget == null)
-            {
-                return HttpNotFound();
-            }
-            return View(currencyBudget);
-        }
-
+    
      
         public ActionResult Create()
         {

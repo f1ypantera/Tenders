@@ -1,17 +1,14 @@
 ﻿@model IEnumerable<Tenders.Models.ViewTender>
 
-@{
-    ViewBag.Title = "Index";
-}
-
 
 
 </br>
 <div class="form-group">
 
-    <a class="btn btn-default" href=" @Url.Action("Create", "ViewTenders")">Создать новое</a>
+    <a class="btn btn-default" href=" @Url.Action("Create", "ViewTenders")">Создать новый вид</a>
 
 </div>
+
 <table class="table">
     <tr>
         <th>
@@ -26,8 +23,8 @@
             @Html.DisplayFor(modelItem => item.ListViewTenders)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ViewTenderID }) |    
-            @Html.ActionLink("Delete", "Delete", new { id=item.ViewTenderID })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ViewTenderID }) |    
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ViewTenderID })
         </td>
     </tr>
 }

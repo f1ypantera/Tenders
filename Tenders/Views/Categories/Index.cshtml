@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<Tenders.Models.Category>
 
-@{
-    ViewBag.Title = "Index";
-}
 
+</br>
+<div class="form-group">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <a class="btn btn-default" href=" @Url.Action("Create", "Categories")">Создать новую категорию</a>
+
+</div>
 <table class="table">
     <tr>
         <th>
@@ -16,17 +15,17 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ListCategory)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListCategory)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.CategoryID }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.CategoryID })
+            </td>
+        </tr>
+    }
 
 </table>

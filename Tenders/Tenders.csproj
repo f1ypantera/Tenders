@@ -215,7 +215,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Tenders\Create.cshtml" />
     <Content Include="Views\Tenders\Delete.cshtml" />
@@ -228,12 +227,10 @@
     <Content Include="Views\OrgTenders\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\CurrencyBudgets\Create.cshtml" />
     <Content Include="Views\CurrencyBudgets\Delete.cshtml" />
-    <Content Include="Views\CurrencyBudgets\Details.cshtml" />
     <Content Include="Views\CurrencyBudgets\Edit.cshtml" />
     <Content Include="Views\CurrencyBudgets\Index.cshtml" />
     <Content Include="Views\ViewTenders\Create.cshtml" />

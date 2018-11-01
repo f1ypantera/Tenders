@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Tenders.Models.CurrencyBudget>
 
-@{
-    ViewBag.Title = "Index";
-}
 
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+</br>
+<div class="form-group">
+
+    <a class="btn btn-default" href=" @Url.Action("Create", "CurrencyBudgets")">Создать новый бюджет</a>
+
+</div>
 <table class="table">
     <tr>
         <th>
@@ -17,17 +17,17 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ListCurrencyBudget)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CurrencyBudgetID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CurrencyBudgetID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CurrencyBudgetID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListCurrencyBudget)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.CurrencyBudgetID }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.CurrencyBudgetID })
+            </td>
+        </tr>
+    }
 
 </table>
