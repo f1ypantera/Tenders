@@ -33,7 +33,7 @@ namespace Tenders.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                tenders = tenders.Where(s => s.SubjectTender.Contains(searchString)).ToPagedList(pageNumber, pageSize);
+                tenders = tenders.Where(s => s.SubjectTender.Contains(searchString)).OrderBy(p => p.TenderID).ToPagedList(pageNumber, pageSize);
                   
             }
          
