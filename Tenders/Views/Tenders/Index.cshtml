@@ -12,6 +12,12 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.SubjectTender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescriptionTender)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Category.ListCategory)
         </th>
         <th>
@@ -23,12 +29,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ViewTender.ListViewTenders)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubjectTender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DescriptionTender)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Budget)
         </th>
@@ -44,6 +45,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.SubjectTender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescriptionTender)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Category.ListCategory)
         </td>
         <td>
@@ -55,12 +62,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ViewTender.ListViewTenders)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubjectTender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescriptionTender)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Budget)
         </td>

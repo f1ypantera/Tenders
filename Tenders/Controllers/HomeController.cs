@@ -17,13 +17,14 @@ namespace Tenders.Controllers
     public class HomeController : Controller
     {
         private TenderContext db = new TenderContext();
+        public string CurrentCategory { get; set; }
 
 
-        public  ActionResult Index(int? page,string searchString,string searchDesription,string organizator)
+        public  ActionResult Index(int? page,string searchString )
         {
 
             
-            int pageSize = 3;
+            int pageSize = 4;
             int pageNumber = (page ?? 1);
 
 
@@ -33,11 +34,9 @@ namespace Tenders.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 tenders = tenders.Where(s => s.SubjectTender.Contains(searchString)).ToPagedList(pageNumber, pageSize);
+                  
             }
-            if (!string.IsNullOrEmpty(searchDesription))
-            {
-                tenders = tenders.Where(s => s.DescriptionTender.Contains(searchString)).ToPagedList(pageNumber, pageSize);
-            }
+         
 
 
             return View(tenders);
@@ -69,8 +68,7 @@ namespace Tenders.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "My contact page.";
-
+           
             return View();
         }
     }
