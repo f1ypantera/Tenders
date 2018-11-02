@@ -42,6 +42,8 @@ namespace Tenders.Controllers
 
             return View(tenders);
         }
+
+
         public async Task<ActionResult> DetailDesription(int? id)
         {
             if (id == null)

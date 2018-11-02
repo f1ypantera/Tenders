@@ -17,34 +17,36 @@
 
     <h1>Тендеры</h1>
 
-   
-    <form  class="form-inline" asp-controller="Tenders" asp-action="Index" method="get">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+    <div class="form-inline">
+        <input class="form-control" type="text" name="searchString">
+        <input class="btn btn-primary" type="submit" value="Поиск" />
 
-        <p class="form-group">
-            
-            <input class="form-control" type="text" name="SearchString">
-            <input class="btn btn-primary" type="submit" value="Поиск" />
-        </p>
-    </form>
+    </div>
+        
+    }
+
+ 
     </br>
 
     @foreach (var item in @Model)
     {
 
-    <div class="well">
-        <strong> Тендер номер @item.TenderID</strong>
-        <h3>
-            <span class="lead">@item.SubjectTender</span>
-        </h3>
+        <div class="well">
+            <strong> Тендер номер @item.TenderID</strong>
+            <h3>
+                <span class="lead">@item.SubjectTender</span>
+            </h3>
 
-        <p>@item.OrgTender.ListOrgTender</p>
-        <span class="pull-right label label-primary">@item.Budget</span>
-        <p>@item.CurrencyBudget.ListCurrencyBudget</p>
-        <p>@item.SponsorShip</p>
+            <p>@item.OrgTender.ListOrgTender</p>
+            <span class="pull-right label label-primary">@item.Budget</span>
+            <p>@item.CurrencyBudget.ListCurrencyBudget</p>
+            <p>@item.SponsorShip</p>
 
 
-        @Html.ActionLink("Детальное описание", "DetailDesription", new { id = item.TenderID })
-    </div>
+            @Html.ActionLink("Детальное описание", "DetailDesription", new { id = item.TenderID })
+        </div>
 
     }
 
